@@ -223,3 +223,49 @@ MLflow provides experiment visibility, GitHub Actions automates quality checks a
 The project illustrates how machine learning models can be integrated into a testable and deployable software workflow.
 
 **Disclaimer:** This project is intended for educational purposes only. Its predictions must not be used as a substitute for professional medical advice or diagnosis.
+
+
+## Kubernetes Deployment
+
+### Overview
+The Heart Disease Prediction API is containerized using Docker and deployed locally on Kubernetes using Docker Desktop Kubernetes.
+
+### Kubernetes Resources
+- **Deployment:** `heart-disease-api`
+- **Replicas:** 2
+- **Service:** `heart-disease-api`
+- **Service Type:** ClusterIP
+- **Service Port:** 8000
+- **Container Port:** 8000
+- **Health Checks:** Readiness probe configured
+
+### Deployment Verification
+The Kubernetes deployment was verified using:
+```bash
+kubectl get nodes
+kubectl get deployments
+kubectl get pods
+kubectl get services
+kubectl describe service heart-disease-api
+```
+
+Both application pods reached the `Running` state and were registered as Service endpoints.
+
+### API Testing
+The API was tested through Swagger UI at `http://127.0.0.1:8000/docs` using Kubernetes port forwarding.
+
+- **GET `/health`:** HTTP 200 OK
+- **POST `/predict`:** HTTP 200 OK
+- **Model:** Logistic Regression
+- **Response:** Prediction, label, confidence, and disclaimer
+
+### Access the API Locally
+Start port forwarding:
+```bash
+kubectl port-forward service/heart-disease-api 8000:8000
+```
+
+Open `http://127.0.0.1:8000/docs` to test the API.
+
+> **Disclaimer:** This project is for educational purposes only and does not provide a medical diagnosis.
+
