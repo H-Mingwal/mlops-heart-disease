@@ -290,5 +290,54 @@ kubectl port-forward service/heart-disease-api 8000:8000
 
 Open `http://127.0.0.1:8000/metrics` to inspect the exported metrics.
 
-**Note:** The current implementation exposes metrics in Prometheus format. A separate Prometheus server and Grafana dashboard are not claimed unless they are configured and verified.
+
+## Kubernetes Deployment
+
+The heart disease prediction API was deployed locally using Kubernetes on Docker Desktop.
+
+### Deployment Architecture
+- Container image: `heart-disease-mlops:latest`
+- Kubernetes Deployment: `heart-disease-api`
+- Replicas: 2
+- Service type: `LoadBalancer`
+- Container port: `8000`
+- Local API access: `http://127.0.0.1:8000` through Kubernetes port forwarding
+
+### Deployment Verification
+
+The Kubernetes Deployment was verified using `kubectl`. Both application pods reached the `Running` state, and the Service registered both pod endpoints.
+
+```powershell
+kubectl get pods
+kubectl get services
+kubectl get endpoints heart-disease-api
+```
+
+### API Testing
+
+The following endpoints were tested through Kubernetes port forwarding:
+
+| Endpoint | Result |
+|---|---|
+| `GET /health` | HTTP 200; model loaded |
+| `POST /predict` | HTTP 200; prediction returned |
+| `GET /metrics` | Prometheus-format metrics returned |
+
+The prediction endpoint returned a response containing the prediction label, model confidence, model name, and educational-use disclaimer.
+
+### Monitoring
+
+The `/metrics` endpoint exposes application metrics in Prometheus format, including API request counters and request latency metrics.
+
+### Local Access
+
+The API was accessed through Kubernetes port forwarding:
+
+```powershell
+kubectl port-forward service/heart-disease-api 8000:8000
+```
+
+Open `http://127.0.0.1:8000/docs` to access the interactive API documentation.
+
+
 
