@@ -23,7 +23,9 @@ jobs:
       - name: Lint
         run: ruff check src tests
       - name: Unit tests
-        run: pytest -q
+        run: python -m pytest -v
+        env: 
+          PYTHONPATH: .
       - name: Train models and log experiments
         run: python -m src.train
       - name: Upload artifacts
