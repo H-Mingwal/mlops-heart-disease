@@ -269,3 +269,26 @@ Open `http://127.0.0.1:8000/docs` to test the API.
 
 > **Disclaimer:** This project is for educational purposes only and does not provide a medical diagnosis.
 
+
+
+## Monitoring and Observability
+
+The FastAPI application exposes a Prometheus-compatible metrics endpoint at `/metrics`.
+
+### Metrics collected
+- Total API requests, labelled by endpoint, HTTP method, and HTTP status.
+- API request duration for latency monitoring.
+- Python process CPU and memory usage.
+- Python garbage-collection statistics and process information.
+
+### Verification
+The metrics endpoint was tested through the Kubernetes port-forward connection.
+
+```bash
+kubectl port-forward service/heart-disease-api 8000:8000
+```
+
+Open `http://127.0.0.1:8000/metrics` to inspect the exported metrics.
+
+**Note:** The current implementation exposes metrics in Prometheus format. A separate Prometheus server and Grafana dashboard are not claimed unless they are configured and verified.
+
