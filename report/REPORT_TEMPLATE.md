@@ -213,5 +213,5 @@ kubectl port-forward service/heart-disease-api 8000:8000
 
 ## Appendix B — Repository and Video
 - GitHub repository: [\[TODO: your repository URL\]](https://github.com/H-Mingwal/mlops-heart-disease/tree/main)
-- Pipeline video: [TODO: link to your recording]
-- Deployment screenshots: [TODO: folder/path]
+- Pipeline video: (https://drive.google.com/file/d/1Tv-7w0dAI8-10yT3cqPUFkzGmxOS-0zj/view?usp=drive_link)
+- Deployment screenshots: https://github.com/H-Mingwal/mlops-heart-disease/tree/main/screenshots/Deploymentscreenshots 
