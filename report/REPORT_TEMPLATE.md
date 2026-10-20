@@ -4,8 +4,6 @@
 **Student:** Hemlata Mingwal  
 **Date:** 20 Oct, 2026
 
-> Replace every bracketed TODO with results from your own execution. Do not invent metrics, screenshots, URLs, or deployment outcomes.
-
 ## 1. Executive Summary
 This project implements an end-to-end MLOps workflow for binary heart disease classification using the UCI Heart Disease dataset. The workflow covers data exploration, preprocessing, model development, experiment tracking, automated testing, model packaging, API development, containerization, and Kubernetes deployment.
 
@@ -51,7 +49,7 @@ The target distribution is relatively balanced: **54.13% belong to class 0 and 4
 
 ### 4.1 Target Class Distribution
 
-![Target Class Distribution](screenshots/target_distribution.png)
+![Target distribution](../screenshots/Target_distributions.png)
 
 The dataset contains 54.13% class 0 observations and
 45.87% class 1 observations. Class 0 is slightly more
@@ -61,14 +59,14 @@ during model training and evaluation.
 
 ### 4.2 Feature Distributions
 
-![Feature Histograms](screenshots/feature_distributions.png)
+![Feature distributions](../screenshots/feature_distributions.png)
 
 Histograms were used to examine the distributions of numerical features, including age, resting blood pressure, cholesterol, maximum heart rate, and oldpeak. These visualizations help identify variation, skewness, and potential outliers in the input variables. The distributions also help inform preprocessing decisions, such as standardization and missing-value handling.
 
 
 ### 4.3 Age Distribution by Heart Disease Status
 
-![Feature Histograms](screenshots/age_distribution_by_heart_disease.png)
+![Age distribution by heart disease](../screenshots/age_distribution_by_heart_disease.png)
 
 The box plot compares age distributions for individuals without heart disease (class 0) and individuals with heart disease (class 1).
 
@@ -78,14 +76,13 @@ This visualization suggests an association between age and the target in the obs
 
 ### 4.4 Feature Correlation Heatmap
 
-![Feature Histograms](screenshots/feature_correlations.png)
+![Correlation heatmap](../screenshots/heatmap.png)
 
 The correlation heatmap summarizes pairwise linear correlations among the numerical and encoded variables, including the target. Redder cells indicate positive correlations, while bluer cells indicate negative correlations. Values closer to zero indicate weaker linear relationships.
 
 The heatmap shows a negative correlation between maximum heart rate (thalach) and the target, while variables such as chest-pain type (cp), exercise-induced angina (exang), oldpeak, and thal show positive correlations with the target in this encoded dataset.
 
 These patterns provide exploratory insights into potential relationships between the input features and the target. Correlation does not imply causation, and the strength and interpretation of correlations involving coded categorical variables depend on how those variables are represented.
-
 
 
 

@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: heart-disease-mlops:local
+          image: heart-disease-mlops:latest
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8000
@@ -51,4 +51,4 @@ spec:
     - name: http
       port: 8000
       targetPort: 8000
-  type: ClusterIP
+  type: LoadBalancer
